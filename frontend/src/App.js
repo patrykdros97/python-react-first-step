@@ -9,10 +9,16 @@ function App() {
     axios.get('/api').then(res => setPeople(res.data));
   }, []);
 
-  return people.map((p, index) => {
-    return <p key={index}>{p.id} {p.name} {p.age}</p>
-  })
+  const listItems = people.map((p, index) =>  
+    <li key={index}>{p.id} {p.name} {p.age}</li>
+  );
 
+  return (  
+    <div>  
+        <h2>List of peoples</h2>  
+            <ul>{listItems}</ul>  
+    </div>  
+  );
 }
 
 export default App;
